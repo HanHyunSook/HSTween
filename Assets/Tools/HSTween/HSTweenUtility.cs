@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace HSTween
@@ -41,7 +42,7 @@ namespace HSTween
             }
             return play;
         }
-        public static bool Play(GameObject obj, string animKey, ePlayMode playMode, Action<GameObject> actionFinish)
+        public static bool Play(GameObject obj, string animKey, ePlayMode playMode, UnityAction actionFinish)
         {
             if (obj == null)
                 return false;
@@ -93,7 +94,7 @@ namespace HSTween
             return stop;
         }
 
-        public static bool ToggleAnim(GameObject obj, string animKey, Action<GameObject> actionFinish)
+        public static bool ToggleAnim(GameObject obj, string animKey, UnityAction actionFinish)
         {
             if (obj == null)
                 return false;

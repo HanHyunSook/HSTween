@@ -71,7 +71,7 @@ namespace HSTween
             PlayState(animKey, true);
         }
 
-        private void EndToggle(GameObject obj)
+        private void EndToggle()
         {
             if (onToggle != null)
                 onToggle.Invoke();

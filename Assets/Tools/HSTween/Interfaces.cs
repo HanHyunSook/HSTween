@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HSTween
 {
@@ -16,7 +17,7 @@ namespace HSTween
         bool IsLastFrame { get; }
 
         void Play(ePlayMode playMode);
-        void Play(ePlayMode playMode, Action<GameObject> actionFinish);
+        void Play(ePlayMode playMode, UnityAction actionFinish);
         void Stop(eStopMode stopMode);
 
         void SetFirstFrame();

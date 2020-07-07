@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HSTween
 {
@@ -13,7 +14,7 @@ namespace HSTween
         [SerializeField] [HideInInspector] public string mKey = string.Empty;
         [SerializeField] [HideInInspector] private uint mAnimationTime = 500;
 
-        public Action<GameObject> onFinished;
+        public UnityAction onFinished;
 
         public bool AutoPlay { get { return mAutoPlay; } }
 
@@ -82,7 +83,7 @@ namespace HSTween
             }
         }
 
-        public void Play(ePlayMode playMode, Action<GameObject> actionFinish)
+        public void Play(ePlayMode playMode, UnityAction actionFinish)
         {
             onFinished = actionFinish;
             Play(playMode);
@@ -198,7 +199,7 @@ namespace HSTween
             IsPlaying = false;
             if (onFinished != null)
             {
-                onFinished(this.gameObject);
+                onFinished.Invoke();
             }
         }
 
